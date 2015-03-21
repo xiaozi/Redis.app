@@ -10,8 +10,14 @@
 		9038D4C41ABD817400CE4629 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9038D4C31ABD817400CE4629 /* AppDelegate.swift */; };
 		9038D4C61ABD817400CE4629 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9038D4C51ABD817400CE4629 /* ViewController.swift */; };
 		9038D4C81ABD817400CE4629 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9038D4C71ABD817400CE4629 /* Images.xcassets */; };
-		9038D4CB1ABD817400CE4629 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9038D4C91ABD817400CE4629 /* Main.storyboard */; };
 		9038D4D71ABD817400CE4629 /* RedisTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9038D4D61ABD817400CE4629 /* RedisTests.swift */; };
+		9038D4E11ABD88CC00CE4629 /* RedisServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9038D4E01ABD88CC00CE4629 /* RedisServer.swift */; };
+		9038D4E31ABD88E600CE4629 /* RedisServerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9038D4E21ABD88E600CE4629 /* RedisServerDelegate.swift */; };
+		9038D5111ABD953000CE4629 /* redis in Resources */ = {isa = PBXBuildFile; fileRef = 9038D5101ABD953000CE4629 /* redis */; };
+		9038D5131ABD9A1100CE4629 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9038D5121ABD9A1100CE4629 /* MainMenu.xib */; };
+		90A9DA291ABDD22B001E9CE3 /* StatusIcon-una.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 90A9DA261ABDD22B001E9CE3 /* StatusIcon-una.tiff */; };
+		90A9DA2A1ABDD22B001E9CE3 /* StatusIcon.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 90A9DA271ABDD22B001E9CE3 /* StatusIcon.tiff */; };
+		90A9DA2B1ABDD22B001E9CE3 /* StatusIcon-alt.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 90A9DA281ABDD22B001E9CE3 /* StatusIcon-alt.tiff */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,10 +36,16 @@
 		9038D4C31ABD817400CE4629 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9038D4C51ABD817400CE4629 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9038D4C71ABD817400CE4629 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		9038D4CA1ABD817400CE4629 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9038D4D01ABD817400CE4629 /* RedisTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RedisTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9038D4D51ABD817400CE4629 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9038D4D61ABD817400CE4629 /* RedisTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedisTests.swift; sourceTree = "<group>"; };
+		9038D4E01ABD88CC00CE4629 /* RedisServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedisServer.swift; sourceTree = "<group>"; };
+		9038D4E21ABD88E600CE4629 /* RedisServerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedisServerDelegate.swift; sourceTree = "<group>"; };
+		9038D5101ABD953000CE4629 /* redis */ = {isa = PBXFileReference; lastKnownFileType = folder; name = redis; path = Resources/redis; sourceTree = "<group>"; };
+		9038D5121ABD9A1100CE4629 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
+		90A9DA261ABDD22B001E9CE3 /* StatusIcon-una.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = "StatusIcon-una.tiff"; sourceTree = "<group>"; };
+		90A9DA271ABDD22B001E9CE3 /* StatusIcon.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = StatusIcon.tiff; sourceTree = "<group>"; };
+		90A9DA281ABDD22B001E9CE3 /* StatusIcon-alt.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = "StatusIcon-alt.tiff"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +69,7 @@
 		9038D4B51ABD817400CE4629 = {
 			isa = PBXGroup;
 			children = (
+				9038D5101ABD953000CE4629 /* redis */,
 				9038D4C01ABD817400CE4629 /* Redis */,
 				9038D4D31ABD817400CE4629 /* RedisTests */,
 				9038D4BF1ABD817400CE4629 /* Products */,
@@ -78,8 +91,10 @@
 				9038D4C31ABD817400CE4629 /* AppDelegate.swift */,
 				9038D4C51ABD817400CE4629 /* ViewController.swift */,
 				9038D4C71ABD817400CE4629 /* Images.xcassets */,
-				9038D4C91ABD817400CE4629 /* Main.storyboard */,
+				9038D5121ABD9A1100CE4629 /* MainMenu.xib */,
 				9038D4C11ABD817400CE4629 /* Supporting Files */,
+				9038D4E01ABD88CC00CE4629 /* RedisServer.swift */,
+				9038D4E21ABD88E600CE4629 /* RedisServerDelegate.swift */,
 			);
 			path = Redis;
 			sourceTree = "<group>";
@@ -87,6 +102,9 @@
 		9038D4C11ABD817400CE4629 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				90A9DA261ABDD22B001E9CE3 /* StatusIcon-una.tiff */,
+				90A9DA271ABDD22B001E9CE3 /* StatusIcon.tiff */,
+				90A9DA281ABDD22B001E9CE3 /* StatusIcon-alt.tiff */,
 				9038D4C21ABD817400CE4629 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -189,8 +207,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90A9DA2B1ABDD22B001E9CE3 /* StatusIcon-alt.tiff in Resources */,
+				90A9DA291ABDD22B001E9CE3 /* StatusIcon-una.tiff in Resources */,
 				9038D4C81ABD817400CE4629 /* Images.xcassets in Resources */,
-				9038D4CB1ABD817400CE4629 /* Main.storyboard in Resources */,
+				90A9DA2A1ABDD22B001E9CE3 /* StatusIcon.tiff in Resources */,
+				9038D5111ABD953000CE4629 /* redis in Resources */,
+				9038D5131ABD9A1100CE4629 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,6 +230,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9038D4E11ABD88CC00CE4629 /* RedisServer.swift in Sources */,
+				9038D4E31ABD88E600CE4629 /* RedisServerDelegate.swift in Sources */,
 				9038D4C61ABD817400CE4629 /* ViewController.swift in Sources */,
 				9038D4C41ABD817400CE4629 /* AppDelegate.swift in Sources */,
 			);
@@ -230,17 +254,6 @@
 			targetProxy = 9038D4D11ABD817400CE4629 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		9038D4C91ABD817400CE4629 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9038D4CA1ABD817400CE4629 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		9038D4D81ABD817400CE4629 /* Debug */ = {
@@ -397,6 +410,7 @@
 				9038D4DC1ABD817400CE4629 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9038D4DD1ABD817400CE4629 /* Build configuration list for PBXNativeTarget "RedisTests" */ = {
 			isa = XCConfigurationList;
@@ -405,6 +419,7 @@
 				9038D4DF1ABD817400CE4629 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

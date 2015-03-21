@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6751"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="NSApplication" customModule="Redis">
+            <connections>
+                <outlet property="delegate" destination="2fa-El-hYH" id="2t4-1I-5A9"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customObject id="2fa-El-hYH" customClass="AppDelegate" customModule="Redis" customModuleProvider="target">
+            <connections>
+                <outlet property="restartBtn" destination="P0r-Ul-hwp" id="oOJ-mD-7JL"/>
+                <outlet property="startBtn" destination="Ovh-vo-7yI" id="BuO-8H-nyt"/>
+                <outlet property="statusMenu" destination="0Ws-17-hoH" id="Hdl-sl-o6j"/>
+                <outlet property="stopBtn" destination="RJg-S5-tvk" id="Hkm-fZ-URr"/>
+            </connections>
+        </customObject>
+        <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
+        <menu id="0Ws-17-hoH">
+            <items>
+                <menuItem title="Start" id="Ovh-vo-7yI">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="onStartBtnClick:" target="2fa-El-hYH" id="OyU-xk-ycs"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Stop" id="RJg-S5-tvk">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="onStopBtnClick:" target="2fa-El-hYH" id="G8T-bH-nfq"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Restart" id="P0r-Ul-hwp">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="onRestartBtnClick:" target="2fa-El-hYH" id="Nfr-D1-cOr"/>
+                    </connections>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="b90-dQ-az7"/>
+                <menuItem title="CLI" id="qlh-IR-zh4">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="onCliBtnClick:" target="2fa-El-hYH" id="lLv-pu-TsP"/>
+                    </connections>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="K0v-by-S5M"/>
+                <menuItem title="About" id="Syc-X3-KTC">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="onAboutBtnClick:" target="2fa-El-hYH" id="f4i-bO-apA"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Quit" id="6A0-Fy-9Ut">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="onQuitBtnClick:" target="2fa-El-hYH" id="xij-bh-lbh"/>
+                    </connections>
+                </menuItem>
+            </items>
+            <point key="canvasLocation" x="102" y="45.5"/>
+        </menu>
+    </objects>
+</document>
