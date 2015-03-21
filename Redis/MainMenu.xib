@@ -13,6 +13,7 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customObject id="2fa-El-hYH" customClass="AppDelegate" customModule="Redis" customModuleProvider="target">
             <connections>
+                <outlet property="cliBtn" destination="qlh-IR-zh4" id="g3N-bq-REq"/>
                 <outlet property="restartBtn" destination="P0r-Ul-hwp" id="oOJ-mD-7JL"/>
                 <outlet property="startBtn" destination="Ovh-vo-7yI" id="BuO-8H-nyt"/>
                 <outlet property="statusMenu" destination="0Ws-17-hoH" id="Hdl-sl-o6j"/>
@@ -41,7 +42,7 @@
                     </connections>
                 </menuItem>
                 <menuItem isSeparatorItem="YES" id="b90-dQ-az7"/>
-                <menuItem title="CLI" id="qlh-IR-zh4">
+                <menuItem title="CLI" onStateImage="NSStatusAvailable" offStateImage="NSStatusUnavailable" id="qlh-IR-zh4">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="onCliBtnClick:" target="2fa-El-hYH" id="lLv-pu-TsP"/>
@@ -64,4 +65,8 @@
             <point key="canvasLocation" x="102" y="45.5"/>
         </menu>
     </objects>
+    <resources>
+        <image name="NSStatusAvailable" width="16" height="16"/>
+        <image name="NSStatusUnavailable" width="16" height="16"/>
+    </resources>
 </document>

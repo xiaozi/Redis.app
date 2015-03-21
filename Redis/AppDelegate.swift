@@ -17,6 +17,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, RedisServerDelegate {
 	@IBOutlet weak var startBtn: NSMenuItem!
 	@IBOutlet weak var stopBtn: NSMenuItem!
 	@IBOutlet weak var restartBtn: NSMenuItem!
+	@IBOutlet weak var cliBtn: NSMenuItem!
+	
 	var redisServer: RedisServer
 
 	override init() {
@@ -95,6 +97,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, RedisServerDelegate {
 	func redisStarted() {
 		// self.statusBarItem.title = "started"
 		self.statusBarItem.image = NSImage(named: "StatusIcon")
+		self.cliBtn.state = 1
 	}
 	
 	func redisStoping() {
@@ -105,6 +108,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, RedisServerDelegate {
 	func redisStoped() {
 		// self.statusBarItem.title = "stoped"
 		self.statusBarItem.image = NSImage(named: "StatusIcon-una")
+		self.cliBtn.state = 0
 	}
 
 }
