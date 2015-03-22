@@ -7,8 +7,8 @@
 //
 
 protocol RedisServerDelegate {
-	func redisStarting();
-	func redisStarted();
-	func redisStoping();
-	func redisStoped();
+	func redisStarting()
+	func redisStarted()
+	func redisStoping()
+	func redisStoped()
 }

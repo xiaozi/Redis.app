@@ -22,13 +22,45 @@ class AppDelegate: NSObject, NSApplicationDelegate, RedisServerDelegate {
 	var redisServer: RedisServer
 
 	override init() {
+		let workDir = AppDelegate.getWorkDir()!
 		let serverBin = NSBundle.mainBundle().pathForResource("redis-server", ofType: nil, inDirectory: "redis/bin")
 		let cliBin = NSBundle.mainBundle().pathForResource("redis-cli", ofType: nil, inDirectory: "redis/bin")
-		let configFile = NSBundle.mainBundle().pathForResource("redis", ofType: "conf", inDirectory: "redis/etc")
+		let configFile = AppDelegate.getConfigFile(workDir)
 		
-		self.redisServer = RedisServer(serverBin: serverBin!, cliBin: cliBin!, configFile: configFile!)
+		self.redisServer = RedisServer(workDir: workDir, serverBin: serverBin!, cliBin: cliBin!, configFile: configFile)
 		super.init()
 		self.redisServer.delegate = self
+	}
+	
+	class func getWorkDir() -> String? {
+		let ide = NSBundle.mainBundle().bundleIdentifier
+		var fm = NSFileManager.defaultManager()
+		let urls = fm.URLsForDirectory(.ApplicationSupportDirectory, inDomains: .UserDomainMask)
+		if urls.count > 0 {
+			var url: NSURL = urls[0] as NSURL
+			var path = url.path! + "/" + ide!
+			var theError: NSError?
+			var exists: Bool = fm.fileExistsAtPath(path)
+			var success: Bool = true
+			if !exists {
+				success = fm.createDirectoryAtPath(path, withIntermediateDirectories: true, attributes: nil, error: &theError)
+			}
+
+			return path
+		}
+		return nil
+	}
+	
+	class func getConfigFile(workDir: String) -> String {
+		let configFile = workDir + "/redis.conf"
+		var fm = NSFileManager.defaultManager()
+		if fm.fileExistsAtPath(configFile) {
+			return configFile
+		}
+		var error: NSError? = nil
+		let defaultConfigFile = NSBundle.mainBundle().pathForResource("redis", ofType: "conf", inDirectory: "redis/etc")
+		fm.copyItemAtPath(defaultConfigFile!, toPath: configFile, error: &error)
+		return configFile
 	}
 
 	func applicationDidFinishLaunching(aNotification: NSNotification) {
