@@ -20,6 +20,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, RedisServerDelegate {
 	@IBOutlet weak var cliBtn: NSMenuItem!
 	
 	var redisServer: RedisServer
+	var workDir: String
+	var cliBin: String
 
 	override init() {
 		let workDir = AppDelegate.getWorkDir()!
@@ -28,6 +30,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, RedisServerDelegate {
 		let configFile = AppDelegate.getConfigFile(workDir)
 		
 		self.redisServer = RedisServer(workDir: workDir, serverBin: serverBin!, cliBin: cliBin!, configFile: configFile)
+		self.cliBin = cliBin!
+		self.workDir = workDir
 		super.init()
 		self.redisServer.delegate = self
 	}
@@ -109,8 +113,11 @@ class AppDelegate: NSObject, NSApplicationDelegate, RedisServerDelegate {
 	}
 	
 	@IBAction func onCliBtnClick(sender: AnyObject) {
-		let cliBin: String = NSBundle.mainBundle().pathForResource("redis-cli", ofType: nil, inDirectory: "redis/bin")!
-		NSWorkspace.sharedWorkspace().openFile(cliBin)
+		NSWorkspace.sharedWorkspace().openFile(self.cliBin)
+	}
+	
+	@IBAction func onWorkDirBtnClick(sender: AnyObject) {
+		NSWorkspace.sharedWorkspace().openFile(self.workDir)
 	}
 	
 	@IBAction func onAboutBtnClick(sender: AnyObject) {

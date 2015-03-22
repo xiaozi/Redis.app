@@ -48,6 +48,12 @@
                         <action selector="onCliBtnClick:" target="2fa-El-hYH" id="lLv-pu-TsP"/>
                     </connections>
                 </menuItem>
+                <menuItem title="Work Dir" id="7c4-X0-AHf">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="onWorkDirBtnClick:" target="2fa-El-hYH" id="Fjp-61-LNT"/>
+                    </connections>
+                </menuItem>
                 <menuItem isSeparatorItem="YES" id="K0v-by-S5M"/>
                 <menuItem title="About" id="Syc-X3-KTC">
                     <modifierMask key="keyEquivalentModifierMask"/>
