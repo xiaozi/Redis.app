@@ -41,7 +41,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, RedisServerDelegate {
 		var fm = NSFileManager.defaultManager()
 		let urls = fm.URLsForDirectory(.ApplicationSupportDirectory, inDomains: .UserDomainMask)
 		if urls.count > 0 {
-			var url: NSURL = urls[0] as NSURL
+			var url: NSURL = urls[0] as! NSURL
 			var path = url.path! + "/" + ide!
 			var theError: NSError?
 			var exists: Bool = fm.fileExistsAtPath(path)
