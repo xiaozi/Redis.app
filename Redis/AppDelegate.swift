@@ -143,7 +143,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, RedisServerDelegate {
 		// self.statusBarItem.title = "stoping"
 		self.statusBarItem.image = NSImage(named: "StatusIcon")
 	}
-	
+
 	func redisStoped() {
 		// self.statusBarItem.title = "stoped"
 		self.statusBarItem.image = NSImage(named: "StatusIcon-una")
