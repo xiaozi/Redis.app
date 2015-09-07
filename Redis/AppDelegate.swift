@@ -126,6 +126,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, RedisServerDelegate {
 	}
 	
 	@IBAction func onQuitBtnClick(sender: AnyObject) {
+		let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
+		dispatch_async(dispatch_get_global_queue(priority, 0)) {
+			self.redisServer.stop()
+		}
 		NSApplication.sharedApplication().terminate(self)
 	}
 	
