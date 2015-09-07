@@ -121,6 +121,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, RedisServerDelegate {
 	}
 	
 	@IBAction func onAboutBtnClick(sender: AnyObject) {
+		NSApp.activateIgnoringOtherApps(true)
 		NSApp.orderFrontStandardAboutPanel(self)
 	}
 	
