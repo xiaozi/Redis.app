@@ -38,16 +38,22 @@ class AppDelegate: NSObject, NSApplicationDelegate, RedisServerDelegate {
 	
 	class func getWorkDir() -> String? {
 		let ide = NSBundle.mainBundle().bundleIdentifier
-		var fm = NSFileManager.defaultManager()
+		let fm = NSFileManager.defaultManager()
 		let urls = fm.URLsForDirectory(.ApplicationSupportDirectory, inDomains: .UserDomainMask)
 		if urls.count > 0 {
-			var url: NSURL = urls[0] as! NSURL
-			var path = url.path! + "/" + ide!
+			let url: NSURL = urls[0] 
+			let path = url.path! + "/" + ide!
 			var theError: NSError?
-			var exists: Bool = fm.fileExistsAtPath(path)
+			let exists: Bool = fm.fileExistsAtPath(path)
 			var success: Bool = true
 			if !exists {
-				success = fm.createDirectoryAtPath(path, withIntermediateDirectories: true, attributes: nil, error: &theError)
+				do {
+					try fm.createDirectoryAtPath(path, withIntermediateDirectories: true, attributes: nil)
+					success = true
+				} catch let error as NSError {
+					theError = error
+					success = false
+				}
 			}
 
 			return path
@@ -57,13 +63,17 @@ class AppDelegate: NSObject, NSApplicationDelegate, RedisServerDelegate {
 	
 	class func getConfigFile(workDir: String) -> String {
 		let configFile = workDir + "/redis.conf"
-		var fm = NSFileManager.defaultManager()
+		let fm = NSFileManager.defaultManager()
 		if fm.fileExistsAtPath(configFile) {
 			return configFile
 		}
 		var error: NSError? = nil
 		let defaultConfigFile = NSBundle.mainBundle().pathForResource("redis", ofType: "conf", inDirectory: "redis/etc")
-		fm.copyItemAtPath(defaultConfigFile!, toPath: configFile, error: &error)
+		do {
+			try fm.copyItemAtPath(defaultConfigFile!, toPath: configFile)
+		} catch let error1 as NSError {
+			error = error1
+		}
 		return configFile
 	}
 
@@ -77,8 +87,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, RedisServerDelegate {
 	
 	override func awakeFromNib() {
 		// menubar
-		var statusBar = NSStatusBar.systemStatusBar()
-		var statusBarItem: NSStatusItem = statusBar.statusItemWithLength(-1)
+		let statusBar = NSStatusBar.systemStatusBar()
+		let statusBarItem: NSStatusItem = statusBar.statusItemWithLength(-1)
 		statusBarItem.menu = self.statusMenu
 		// statusBarItem.title = "redis"
 		statusBarItem.image = NSImage(named: "StatusIcon")
